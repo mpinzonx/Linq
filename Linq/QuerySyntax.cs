@@ -88,7 +88,7 @@ namespace Linq
             return result;
         }
 
-        public IEnumerable<PersonProjected> Join()
+        public IEnumerable<PersonProjected> JoinAndProjection()
         {
             var result = from p in people
                          join c in contacts
