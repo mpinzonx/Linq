@@ -1,10 +1,12 @@
 ﻿using Linq.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Linq
 {
@@ -49,9 +51,10 @@ namespace Linq
                 new Contact() { Id = 9, Email = "alewis@gmail.com", PersonId = 9 },
                 new Contact() { Id = 10, Email = "aclark@gmail.com", PersonId = 10 },
             });
-
         }
 
+
+        // ***** ***** Basic LINQ Query Operations ***** *****
         public IEnumerable<Person> GetDataSource()
         {
             var result = from p in people
@@ -100,6 +103,42 @@ namespace Linq
                              Email = c.Email
                          };
 
+            return result;
+        }
+
+
+        // ***** ***** Data Transformations with LINQ ***** *****
+
+        public IEnumerable<Person> Concat()
+        {
+            List<Person> otherPeople = new List<Person>();
+            otherPeople.AddRange(new[]
+            {
+                new Person(){ Id = 11, FirstName = "ariana", LastName = "zimmerman", Age = 25 },
+                new Person(){ Id = 12, FirstName = "jordan", LastName = "allen", Age = 15 },
+                new Person(){ Id = 13, FirstName = "madeline", LastName = "kelly", Age = 98 },
+                new Person(){ Id = 14, FirstName = "connor", LastName = "coleman", Age = 12 },
+                new Person(){ Id = 15, FirstName = "eva", LastName = "simpson", Age = 45 }
+            });
+
+            var result = (from p in people
+                          select p)
+                          .Concat(
+                        from op in otherPeople
+                        select op
+                );
+
+            return result;
+        }
+
+        public XElement ObjectToXml()
+        {
+            var result = new XElement("Root", from p in people
+                                              select new XElement("Person",
+                                              new XElement("Id", p.Id),
+                                              new XElement("FirstName", p.FirstName),
+                                              new XElement("LastName", p.LastName),
+                                              new XElement("Age", p.Age)));
             return result;
         }
 
