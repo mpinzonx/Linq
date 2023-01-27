@@ -10,6 +10,6 @@ namespace Linq.Models
     {
         public string Profession { get; set; }
         public double Salary { get; set; }
-        public int CompnayId { get; set; }
+        public int CompanyId { get; set; }
     }
 }
