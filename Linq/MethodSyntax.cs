@@ -35,9 +35,10 @@ namespace Linq
             {
                 new Employee(){ Id = 1, FirstName = "ariana", LastName = "zimmerman", Age = 25, Profession = "back-end developer", Salary = 2500, CompanyId = 1 },
                 new Employee(){ Id = 2, FirstName = "jordan", LastName = "allen", Age = 19, Profession = "front-end developer", Salary = 2500, CompanyId = 2 },
-                new Employee(){Id = 3, FirstName = "madeline", LastName = "kelly", Age = 57, Profession = "devops engineer", Salary = 3000, CompanyId = 3 },
-                new Employee(){Id = 4, FirstName = "connor", LastName = "coleman", Age = 18, Profession = "software architect", Salary = 4000, CompanyId = 4 },
-                new Employee(){Id = 5, FirstName = "eva", LastName = "simpson", Age = 25, Profession = "information security engineer", Salary = 2800, CompanyId = 5 }
+                new Employee(){ Id = 3, FirstName = "madeline", LastName = "kelly", Age = 57, Profession = "devops engineer", Salary = 3000, CompanyId = 3 },
+                new Employee(){ Id = 4, FirstName = "connor", LastName = "coleman", Age = 18, Profession = "software architect", Salary = 4000, CompanyId = 4 },
+                new Employee(){ Id = 5, FirstName = "eva", LastName = "simpson", Age = 25, Profession = "information security engineer", Salary = 2800, CompanyId = 5 },
+                new Employee(){ Id = 5, FirstName = "sofia", LastName = "smith", Age = 19, Profession = "front-end developer", Salary = 1500, CompanyId = 1 }
             });
 
             otherEmployees = new List<Employee>();
@@ -149,6 +150,46 @@ namespace Linq
             List<string> l2 = new List<string>() { "PHP", "JavaScript", "React", "PHP", "Vue" };
 
             return l1.Except(l2);
+        }
+
+        public Employee First()
+        {
+            return employees.First();
+        }
+
+        public Employee FirstWithCondition()
+        {
+            return employees.First(x => x.Age == 19);
+        }
+
+        public Employee FirstOrDefault()
+        {
+            return employees.FirstOrDefault();
+        }
+
+        public Employee FirstOrDefaultWithCondition()
+        {
+            return employees.FirstOrDefault(x => x.CompanyId == 1);
+        }
+
+        public IEnumerable<IGrouping<int, Employee>> GroupBy()
+        {
+            var result = employees.GroupBy(x => x.Age);
+            return result;
+        }
+
+        public IEnumerable<EmployeeProjectedGroup> GroupJoin()
+        {
+            var result = companies.GroupJoin(employees,
+                comp => comp.Id,
+                emp => emp.CompanyId,
+                (cName, eGroup) => new EmployeeProjectedGroup()
+                {
+                    Employees = eGroup,
+                    CompanyName = cName.Name
+                });
+
+            return result;
         }
 
 
