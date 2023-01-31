@@ -237,6 +237,19 @@ namespace Linq
             return employees.LastOrDefault(x => x.Salary == 2500);
         }
 
+        public int Max()
+        {
+            var ages = from emp in employees
+                       select emp.Age;
+
+            return ages.Max();
+        }
+
+        public double MaxWithCondition()
+        {
+            return employees.Max(x => x.Salary);
+        }
+
     }
 
     public class EmployeeComparer : IEqualityComparer<Employee>
