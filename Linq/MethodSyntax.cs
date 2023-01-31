@@ -291,6 +291,15 @@ namespace Linq
             return employees.Select(x => x.LastName);
         }
 
+        public bool SequenceEqual()
+        {
+            List<int> values1 = new List<int>() { 1, 2, 3, 4, 5 };
+            List<int> values2 = new List<int> { 1, 2, 3, 4, 5 };
+
+            return values1.SequenceEqual(values2);
+        }
+
+
     }
 
     public class EmployeeComparer : IEqualityComparer<Employee>
