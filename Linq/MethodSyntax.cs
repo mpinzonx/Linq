@@ -192,6 +192,15 @@ namespace Linq
             return result;
         }
 
+        public IEnumerable<int> Intersect()
+        {
+            List<int> ids = new List<int> { 2, 7, 4, 8, 5, 1 };
+            List<int> otherIds = new List<int> { 1, 9, 2, 8, 3, 7 };
+
+            var result = ids.Intersect(otherIds);
+
+            return result;
+        }
 
     }
 
