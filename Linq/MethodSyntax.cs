@@ -227,6 +227,16 @@ namespace Linq
             return employees.Last(x => x.Age == 19);
         }
 
+        public Employee LastOrDefault()
+        {
+            return employees.LastOrDefault();
+        }
+
+        public Employee LastOrDefaultWithCondition()
+        {
+            return employees.LastOrDefault(x => x.Salary == 2500);
+        }
+
     }
 
     public class EmployeeComparer : IEqualityComparer<Employee>
