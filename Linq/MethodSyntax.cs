@@ -266,6 +266,16 @@ namespace Linq
 
         }
 
+        public IEnumerable<Employee> OrderBy()
+        {
+            return employees.OrderBy(x => x.LastName);
+        }
+
+        public IEnumerable<Employee> OrderByDescending()
+        {
+            return employees.OrderByDescending(x => x.LastName);
+        }
+
     }
 
     public class EmployeeComparer : IEqualityComparer<Employee>
