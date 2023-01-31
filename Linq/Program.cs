@@ -18,3 +18,6 @@ Console.WriteLine("\n");
 
 
 // ------------------------
+
+MethodSyntax methodSyntax = new MethodSyntax();
+

@@ -202,6 +202,21 @@ namespace Linq
             return result;
         }
 
+        public IEnumerable<EmployeeAndCompany> Join()
+        {
+            var result = companies.Join(employees,
+                comp => comp.Id,
+                emp => emp.CompanyId,
+                (c, e) => new EmployeeAndCompany()
+                {
+                    Id = e.Id,
+                    Name = $"{e.FirstName} {e.LastName}",
+                    Company = c.Name
+                });
+
+            return result;
+        }
+
     }
 
     public class EmployeeComparer : IEqualityComparer<Employee>
