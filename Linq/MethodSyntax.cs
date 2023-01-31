@@ -1,5 +1,6 @@
 ﻿using Linq.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -248,6 +249,21 @@ namespace Linq
         public double MaxWithCondition()
         {
             return employees.Max(x => x.Salary);
+        }
+
+        public IEnumerable<Employee> OfType()
+        {
+            IList randomValues = new ArrayList();
+
+            randomValues.Add(1);
+            randomValues.Add(1.25);
+            randomValues.Add(employees[1]);
+            randomValues.Add(true);
+            randomValues.Add(new int[] { 1, 2 });
+            randomValues.Add(employees[2]);
+
+            return randomValues.OfType<Employee>();
+
         }
 
     }
