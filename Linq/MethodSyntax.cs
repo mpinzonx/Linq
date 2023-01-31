@@ -286,6 +286,11 @@ namespace Linq
             return Enumerable.Repeat<int>(2, 10);
         }
 
+        public IEnumerable<string> Select()
+        {
+            return employees.Select(x => x.LastName);
+        }
+
     }
 
     public class EmployeeComparer : IEqualityComparer<Employee>
