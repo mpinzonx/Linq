@@ -276,6 +276,11 @@ namespace Linq
             return employees.OrderByDescending(x => x.LastName);
         }
 
+        public IEnumerable<int> Range()
+        {
+            return Enumerable.Range(5, 10);
+        }
+
     }
 
     public class EmployeeComparer : IEqualityComparer<Employee>
