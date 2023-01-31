@@ -281,6 +281,11 @@ namespace Linq
             return Enumerable.Range(5, 10);
         }
 
+        public IEnumerable<int> Repeat()
+        {
+            return Enumerable.Repeat<int>(2, 10);
+        }
+
     }
 
     public class EmployeeComparer : IEqualityComparer<Employee>
