@@ -358,7 +358,10 @@ namespace Linq
                 .ThenByDescending(x => x.Salary);
         }
 
-
+        public IEnumerable<IGrouping<int, Employee>> ToLookup()
+        {
+            return employees.ToLookup(x => x.Age);
+        }
 
 
     }
