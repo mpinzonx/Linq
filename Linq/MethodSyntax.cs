@@ -299,6 +299,18 @@ namespace Linq
             return values1.SequenceEqual(values2);
         }
 
+        public int Single()
+        {
+            List<int> values = new List<int>() { 1, 2, 5, 7, 9 };
+            return values.Single(x => x % 2 == 0);
+        }
+
+        public int SingleOrDefault()
+        {
+            List<int> values = new List<int>() { 1, 3, 5, 7, 9 };
+            return values.SingleOrDefault(x => x % 2 == 0);
+        }
+
 
     }
 
