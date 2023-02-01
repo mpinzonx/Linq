@@ -39,7 +39,8 @@ namespace Linq
                 new Employee(){ Id = 3, FirstName = "madeline", LastName = "kelly", Age = 57, Profession = "devops engineer", Salary = 3000, CompanyId = 3 },
                 new Employee(){ Id = 4, FirstName = "connor", LastName = "coleman", Age = 18, Profession = "software architect", Salary = 4000, CompanyId = 4 },
                 new Employee(){ Id = 5, FirstName = "eva", LastName = "simpson", Age = 25, Profession = "information security engineer", Salary = 2800, CompanyId = 5 },
-                new Employee(){ Id = 5, FirstName = "sofia", LastName = "smith", Age = 19, Profession = "front-end developer", Salary = 1500, CompanyId = 1 }
+                new Employee(){ Id = 5, FirstName = "sofia", LastName = "smith", Age = 19, Profession = "front-end developer", Salary = 1500, CompanyId = 1 },
+                new Employee(){ Id = 6, FirstName = "adaline", LastName = "campbell", Age = 32, Profession="front-end developer", Salary = 1000, CompanyId = 5 }
             });
 
             otherEmployees = new List<Employee>();
@@ -50,7 +51,6 @@ namespace Linq
             });
 
         }
-
 
         public string Aggregate()
         {
@@ -343,6 +343,22 @@ namespace Linq
             List<int> values = new List<int>() { 1, 3, 5, 7, 9, 2, 4, 6, 8, 10 };
             return values.TakeWhile(x => x % 2 != 0);
         }
+
+        public IEnumerable<Employee> ThenBy()
+        {
+            return employees
+                .OrderBy(x => x.LastName)
+                .ThenBy(x => x.Salary);
+        }
+
+        public IEnumerable<Employee> ThenByDescending()
+        {
+            return employees
+                .OrderBy(x => x.LastName)
+                .ThenByDescending(x => x.Salary);
+        }
+
+
 
 
     }
