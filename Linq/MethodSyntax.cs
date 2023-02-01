@@ -331,6 +331,19 @@ namespace Linq
             return values.Sum();
         }
 
+        public IEnumerable<string> Take(int x = 0)
+        {
+            List<string> countries = new List<string>() { "Brazil", "Canada", "Japan", "Panama", "Germany" };
+
+            return countries.Take(x);
+        }
+
+        public IEnumerable<int> TakeWhile()
+        {
+            List<int> values = new List<int>() { 1, 3, 5, 7, 9, 2, 4, 6, 8, 10 };
+            return values.TakeWhile(x => x % 2 != 0);
+        }
+
 
     }
 
