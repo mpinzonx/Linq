@@ -371,6 +371,11 @@ namespace Linq
             return list1.Union(list2);
         }
 
+        public IEnumerable<Employee> Where()
+        {
+            return employees.Where(x => x.LastName[0].ToString() == "s");
+        }
+
 
     }
 
