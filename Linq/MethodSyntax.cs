@@ -311,6 +311,18 @@ namespace Linq
             return values.SingleOrDefault(x => x % 2 == 0);
         }
 
+        public IEnumerable<int> Skip()
+        {
+            List<int> values = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            return values.Skip(5);
+        }
+
+        public IEnumerable<int> SkipWhile()
+        {
+            List<int> values = new List<int>() { 1, 3, 5, 7, 9, 2, 4, 6, 8, 10 };
+            return values.SkipWhile(x => x % 2 != 0);
+        }
+
 
     }
 

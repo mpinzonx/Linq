@@ -21,4 +21,7 @@ Console.WriteLine("\n");
 
 MethodSyntax methodSyntax = new MethodSyntax();
 
-Console.WriteLine(methodSyntax.SingleOrDefault());
+foreach (var x in methodSyntax.SkipWhile())
+{
+    Console.WriteLine(x);
+}
