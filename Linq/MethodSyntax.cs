@@ -363,6 +363,14 @@ namespace Linq
             return employees.ToLookup(x => x.Age);
         }
 
+        public IEnumerable<int> Union()
+        {
+            List<int> list1 = new List<int> { 1, 2, 3, 4, 5 };
+            List<int> list2 = new List<int> { 1, 2, 3, 4, 5 };
+
+            return list1.Union(list2);
+        }
+
 
     }
 
