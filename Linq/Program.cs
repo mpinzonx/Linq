@@ -21,7 +21,4 @@ Console.WriteLine("\n");
 
 MethodSyntax methodSyntax = new MethodSyntax();
 
-foreach (var x in methodSyntax.SkipWhile())
-{
-    Console.WriteLine(x);
-}
+Console.WriteLine(methodSyntax.Sum());

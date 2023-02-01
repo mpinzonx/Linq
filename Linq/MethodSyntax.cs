@@ -323,6 +323,14 @@ namespace Linq
             return values.SkipWhile(x => x % 2 != 0);
         }
 
+        public int Sum()
+        {
+            List<int> values = new List<int>();
+            values.AddRange(Enumerable.Range(1, 10));
+
+            return values.Sum();
+        }
+
 
     }
 
